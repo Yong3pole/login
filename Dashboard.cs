@@ -73,7 +73,18 @@ namespace login
 
         private void button3_Click(object sender, EventArgs e)
         {
-            LoadProducts();
+
+            button1.Visible = false;
+            button2.Visible = false;
+            button3.Visible = false;
+            button4.Visible = false;
+            button5.Visible = false;
+
+            // Make them visible when the button is clicked
+            dataGridViewProducts.Visible = true;
+            search_product.Visible = true;
+
+            LoadProducts();  // Load products when button3 is clicked
         }
 
         private void accountBtn_Click(object sender, EventArgs e)
@@ -111,5 +122,22 @@ namespace login
             login.Show();
         }
 
+        private void search_product_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+
+            }
+        }
+
+        private void buttondashboard_Click(object sender, EventArgs e)
+        {
+            // show dash buttons
+            button1.Visible = true; button2.Visible = true; button3.Visible = true; button4.Visible = true; button5.Visible = true;
+
+            // Hide them when button1 is clicked
+            dataGridViewProducts.Visible = false;
+            search_product.Visible = false;
+        }
     }
 }

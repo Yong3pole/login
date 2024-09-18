@@ -34,10 +34,10 @@
             dashboarddate = new Label();
             logout = new PictureBox();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            button1 = new Button();
-            accountBtn = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            buttondashboard = new Button();
+            buttonusers = new Button();
+            buttonstock = new Button();
+            buttonsales = new Button();
             panel2 = new Panel();
             label1 = new Label();
             pictureBox1 = new PictureBox();
@@ -46,6 +46,12 @@
             pictureBox2 = new PictureBox();
             nameUser = new Label();
             roleUser = new Label();
+            search_product = new TextBox();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
+            button5 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logout).BeginInit();
             flowLayoutPanel1.SuspendLayout();
@@ -59,6 +65,7 @@
             // panel1
             // 
             panel1.BackColor = Color.DarkSeaGreen;
+            panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(label2);
             panel1.Controls.Add(dashboarddate);
             panel1.Controls.Add(logout);
@@ -67,7 +74,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(241, 668);
+            panel1.Size = new Size(241, 681);
             panel1.TabIndex = 2;
             // 
             // label2
@@ -75,7 +82,7 @@
             label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label2.Location = new Point(119, 618);
+            label2.Location = new Point(121, 629);
             label2.Name = "label2";
             label2.Size = new Size(98, 15);
             label2.TabIndex = 4;
@@ -85,7 +92,7 @@
             // 
             dashboarddate.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             dashboarddate.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            dashboarddate.Location = new Point(98, 633);
+            dashboarddate.Location = new Point(100, 644);
             dashboarddate.Name = "dashboarddate";
             dashboarddate.Size = new Size(119, 21);
             dashboarddate.TabIndex = 3;
@@ -98,7 +105,7 @@
             logout.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             logout.Cursor = Cursors.Hand;
             logout.Image = (Image)resources.GetObject("logout.Image");
-            logout.Location = new Point(19, 610);
+            logout.Location = new Point(21, 621);
             logout.Name = "logout";
             logout.Size = new Size(40, 44);
             logout.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -108,69 +115,75 @@
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Controls.Add(button1);
-            flowLayoutPanel1.Controls.Add(accountBtn);
-            flowLayoutPanel1.Controls.Add(button3);
-            flowLayoutPanel1.Controls.Add(button4);
-            flowLayoutPanel1.Location = new Point(19, 123);
+            flowLayoutPanel1.Controls.Add(buttondashboard);
+            flowLayoutPanel1.Controls.Add(buttonusers);
+            flowLayoutPanel1.Controls.Add(buttonstock);
+            flowLayoutPanel1.Controls.Add(buttonsales);
+            flowLayoutPanel1.Location = new Point(19, 215);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(200, 354);
+            flowLayoutPanel1.Size = new Size(200, 216);
             flowLayoutPanel1.TabIndex = 1;
             // 
-            // button1
+            // buttondashboard
             // 
-            button1.BackColor = Color.Ivory;
-            button1.Cursor = Cursors.Hand;
-            button1.Font = new Font("Cascadia Mono", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = SystemColors.ActiveCaptionText;
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(3, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(197, 43);
-            button1.TabIndex = 3;
-            button1.Text = "DASHBOARD";
-            button1.UseVisualStyleBackColor = false;
+            buttondashboard.BackColor = Color.Ivory;
+            buttondashboard.Cursor = Cursors.Hand;
+            buttondashboard.FlatStyle = FlatStyle.Popup;
+            buttondashboard.Font = new Font("Cascadia Mono", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttondashboard.ForeColor = SystemColors.ActiveCaptionText;
+            buttondashboard.Location = new Point(3, 3);
+            buttondashboard.Name = "buttondashboard";
+            buttondashboard.Size = new Size(197, 43);
+            buttondashboard.TabIndex = 3;
+            buttondashboard.Text = "DASHBOARD";
+            buttondashboard.UseVisualStyleBackColor = false;
+            buttondashboard.Click += buttondashboard_Click;
             // 
-            // accountBtn
+            // buttonusers
             // 
-            accountBtn.BackColor = Color.Ivory;
-            accountBtn.Cursor = Cursors.Hand;
-            accountBtn.Font = new Font("Cascadia Mono", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            accountBtn.ForeColor = SystemColors.ActiveCaptionText;
-            accountBtn.Location = new Point(3, 52);
-            accountBtn.Name = "accountBtn";
-            accountBtn.Size = new Size(197, 43);
-            accountBtn.TabIndex = 4;
-            accountBtn.Text = "ACCOUNT";
-            accountBtn.UseVisualStyleBackColor = false;
-            accountBtn.Click += accountBtn_Click;
+            buttonusers.BackColor = Color.Ivory;
+            buttonusers.Cursor = Cursors.Hand;
+            buttonusers.FlatStyle = FlatStyle.Popup;
+            buttonusers.Font = new Font("Cascadia Mono", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonusers.ForeColor = SystemColors.ActiveCaptionText;
+            buttonusers.Location = new Point(3, 52);
+            buttonusers.Name = "buttonusers";
+            buttonusers.Size = new Size(197, 43);
+            buttonusers.TabIndex = 4;
+            buttonusers.Text = "MANAGE USERS";
+            buttonusers.UseVisualStyleBackColor = false;
+            buttonusers.Click += accountBtn_Click;
             // 
-            // button3
+            // buttonstock
             // 
-            button3.BackColor = Color.Ivory;
-            button3.Cursor = Cursors.Hand;
-            button3.Font = new Font("Cascadia Mono", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.ForeColor = SystemColors.ActiveCaptionText;
-            button3.Location = new Point(3, 101);
-            button3.Name = "button3";
-            button3.Size = new Size(197, 43);
-            button3.TabIndex = 5;
-            button3.Text = "STOCK LEVEL";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
+            buttonstock.BackColor = Color.Ivory;
+            buttonstock.Cursor = Cursors.Hand;
+            buttonstock.FlatAppearance.BorderColor = SystemColors.ActiveCaptionText;
+            buttonstock.FlatStyle = FlatStyle.Popup;
+            buttonstock.Font = new Font("Cascadia Mono", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonstock.ForeColor = SystemColors.ActiveCaptionText;
+            buttonstock.Location = new Point(3, 101);
+            buttonstock.Name = "buttonstock";
+            buttonstock.Size = new Size(197, 43);
+            buttonstock.TabIndex = 5;
+            buttonstock.Text = "STOCK MONITOR";
+            buttonstock.UseVisualStyleBackColor = false;
+            buttonstock.Click += button3_Click;
             // 
-            // button4
+            // buttonsales
             // 
-            button4.BackColor = Color.Ivory;
-            button4.Cursor = Cursors.Hand;
-            button4.Font = new Font("Cascadia Mono", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.ForeColor = SystemColors.ActiveCaptionText;
-            button4.Location = new Point(3, 150);
-            button4.Name = "button4";
-            button4.Size = new Size(197, 43);
-            button4.TabIndex = 6;
-            button4.Text = "MED. MONITORING";
-            button4.UseVisualStyleBackColor = false;
+            buttonsales.BackColor = Color.Ivory;
+            buttonsales.Cursor = Cursors.Hand;
+            buttonsales.FlatAppearance.BorderColor = SystemColors.ActiveCaptionText;
+            buttonsales.FlatStyle = FlatStyle.Popup;
+            buttonsales.Font = new Font("Cascadia Mono", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            buttonsales.ForeColor = SystemColors.ActiveCaptionText;
+            buttonsales.Location = new Point(3, 150);
+            buttonsales.Name = "buttonsales";
+            buttonsales.Size = new Size(197, 43);
+            buttonsales.TabIndex = 6;
+            buttonsales.Text = "SALES";
+            buttonsales.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
@@ -205,33 +218,41 @@
             // 
             // dataGridViewProducts
             // 
+            dataGridViewProducts.AllowUserToAddRows = false;
+            dataGridViewProducts.AllowUserToDeleteRows = false;
+            dataGridViewProducts.AllowUserToResizeColumns = false;
+            dataGridViewProducts.AllowUserToResizeRows = false;
             dataGridViewProducts.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dataGridViewProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewProducts.BackgroundColor = Color.White;
-            dataGridViewProducts.BorderStyle = BorderStyle.None;
             dataGridViewProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewProducts.Location = new Point(321, 123);
+            dataGridViewProducts.Location = new Point(280, 137);
             dataGridViewProducts.Name = "dataGridViewProducts";
-            dataGridViewProducts.Size = new Size(917, 510);
+            dataGridViewProducts.ReadOnly = true;
+            dataGridViewProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewProducts.Size = new Size(943, 496);
+            dataGridViewProducts.StandardTab = true;
             dataGridViewProducts.TabIndex = 3;
+            dataGridViewProducts.Visible = false;
             // 
             // panel3
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel3.BackColor = Color.CadetBlue;
+            panel3.BorderStyle = BorderStyle.FixedSingle;
             panel3.Controls.Add(pictureBox2);
             panel3.Controls.Add(nameUser);
             panel3.Controls.Add(roleUser);
             panel3.Location = new Point(231, 0);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1094, 85);
+            panel3.Size = new Size(1035, 85);
             panel3.TabIndex = 4;
             // 
             // pictureBox2
             // 
             pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(1041, 27);
+            pictureBox2.Location = new Point(980, 27);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(38, 38);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -243,7 +264,7 @@
             nameUser.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             nameUser.AutoEllipsis = true;
             nameUser.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            nameUser.Location = new Point(831, 22);
+            nameUser.Location = new Point(770, 22);
             nameUser.Name = "nameUser";
             nameUser.RightToLeft = RightToLeft.No;
             nameUser.Size = new Size(208, 30);
@@ -256,7 +277,7 @@
             // 
             roleUser.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             roleUser.Font = new Font("Segoe UI", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            roleUser.Location = new Point(900, 46);
+            roleUser.Location = new Point(839, 46);
             roleUser.Name = "roleUser";
             roleUser.Size = new Size(134, 20);
             roleUser.TabIndex = 2;
@@ -264,16 +285,83 @@
             roleUser.TextAlign = ContentAlignment.MiddleRight;
             roleUser.Click += roleUser_Click;
             // 
+            // search_product
+            // 
+            search_product.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            search_product.Location = new Point(280, 96);
+            search_product.Name = "search_product";
+            search_product.PlaceholderText = "Search Product...";
+            search_product.Size = new Size(242, 29);
+            search_product.TabIndex = 3;
+            search_product.Visible = false;
+            search_product.KeyPress += search_product_KeyPress;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(407, 216);
+            button1.Name = "button1";
+            button1.Size = new Size(173, 135);
+            button1.TabIndex = 5;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.Top;
+            button2.Location = new Point(685, 216);
+            button2.Name = "button2";
+            button2.Size = new Size(173, 135);
+            button2.TabIndex = 6;
+            button2.Text = "button2";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button3.Location = new Point(959, 216);
+            button3.Name = "button3";
+            button3.Size = new Size(173, 135);
+            button3.TabIndex = 7;
+            button3.Text = "button3";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(546, 413);
+            button4.Name = "button4";
+            button4.Size = new Size(173, 135);
+            button4.TabIndex = 8;
+            button4.Text = "button4";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            button5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button5.Location = new Point(823, 413);
+            button5.Name = "button5";
+            button5.Size = new Size(173, 135);
+            button5.TabIndex = 9;
+            button5.Text = "button5";
+            button5.UseVisualStyleBackColor = true;
+            // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1323, 668);
+            ClientSize = new Size(1264, 681);
+            Controls.Add(button5);
+            Controls.Add(button4);
+            Controls.Add(button3);
+            Controls.Add(button2);
+            Controls.Add(button1);
+            Controls.Add(search_product);
             Controls.Add(panel1);
             Controls.Add(panel3);
             Controls.Add(dataGridViewProducts);
             Name = "Dashboard";
+            SizeGripStyle = SizeGripStyle.Hide;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Dashboard";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -286,6 +374,7 @@
             panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -295,10 +384,9 @@
         private PictureBox pictureBox1;
         private Label label1;
         private FlowLayoutPanel flowLayoutPanel1;
-        private Button button1;
-        private Button accountBtn;
-        private Button button3;
-        private Button button4;
+        private Button buttondashboard;
+        private Button buttonusers;
+        private Button buttonstock;
         private DataGridView dataGridViewProducts;
         private Panel panel3;
         private PictureBox pictureBox2;
@@ -307,5 +395,12 @@
         private PictureBox logout;
         private Label dashboarddate;
         private Label label2;
+        private Button buttonsales;
+        private TextBox search_product;
+        private Button button1;
+        private Button button2;
+        private Button button3;
+        private Button button4;
+        private Button button5;
     }
 }
