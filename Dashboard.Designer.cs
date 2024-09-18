@@ -51,7 +51,7 @@
             button2 = new Button();
             button3 = new Button();
             button4 = new Button();
-            button5 = new Button();
+            welcome_dash = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logout).BeginInit();
             flowLayoutPanel1.SuspendLayout();
@@ -197,11 +197,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Lucida Console", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Lucida Console", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.MenuText;
-            label1.Location = new Point(106, 25);
+            label1.Location = new Point(89, 22);
             label1.Name = "label1";
-            label1.Size = new Size(117, 45);
+            label1.Size = new Size(141, 57);
             label1.TabIndex = 4;
             label1.Text = "MEDICINE\r\nMONITORING \r\nSYSTEM\r\n";
             // 
@@ -209,7 +209,7 @@
             // 
             pictureBox1.Anchor = AnchorStyles.Left;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(35, 20);
+            pictureBox1.Location = new Point(22, 22);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(58, 54);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -287,6 +287,7 @@
             // 
             // search_product
             // 
+            search_product.Cursor = Cursors.IBeam;
             search_product.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             search_product.Location = new Point(280, 96);
             search_product.Name = "search_product";
@@ -298,51 +299,64 @@
             // 
             // button1
             // 
-            button1.Location = new Point(407, 216);
+            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
+            button1.BackgroundImageLayout = ImageLayout.Zoom;
+            button1.Cursor = Cursors.Hand;
+            button1.FlatAppearance.BorderColor = Color.Lime;
+            button1.FlatAppearance.BorderSize = 20;
+            button1.Location = new Point(331, 237);
             button1.Name = "button1";
-            button1.Size = new Size(173, 135);
+            button1.Size = new Size(173, 159);
             button1.TabIndex = 5;
-            button1.Text = "button1";
+            button1.Text = "Users";
+            button1.TextImageRelation = TextImageRelation.TextAboveImage;
             button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            button2.Anchor = AnchorStyles.Top;
-            button2.Location = new Point(685, 216);
+            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
+            button2.BackgroundImageLayout = ImageLayout.Zoom;
+            button2.Cursor = Cursors.Hand;
+            button2.Location = new Point(543, 237);
             button2.Name = "button2";
-            button2.Size = new Size(173, 135);
+            button2.Size = new Size(173, 159);
             button2.TabIndex = 6;
-            button2.Text = "button2";
+            button2.Text = "Near Expiry";
             button2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            button3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button3.Location = new Point(959, 216);
+            button3.BackgroundImage = (Image)resources.GetObject("button3.BackgroundImage");
+            button3.BackgroundImageLayout = ImageLayout.Zoom;
+            button3.Cursor = Cursors.Hand;
+            button3.Location = new Point(755, 237);
             button3.Name = "button3";
-            button3.Size = new Size(173, 135);
+            button3.Size = new Size(173, 159);
             button3.TabIndex = 7;
-            button3.Text = "button3";
+            button3.Text = "Restock";
             button3.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
-            button4.Location = new Point(546, 413);
+            button4.BackgroundImage = (Image)resources.GetObject("button4.BackgroundImage");
+            button4.BackgroundImageLayout = ImageLayout.Zoom;
+            button4.Cursor = Cursors.Hand;
+            button4.Location = new Point(967, 237);
             button4.Name = "button4";
-            button4.Size = new Size(173, 135);
+            button4.Size = new Size(173, 159);
             button4.TabIndex = 8;
-            button4.Text = "button4";
+            button4.Text = "Sales";
             button4.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // welcome_dash
             // 
-            button5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button5.Location = new Point(823, 413);
-            button5.Name = "button5";
-            button5.Size = new Size(173, 135);
-            button5.TabIndex = 9;
-            button5.Text = "button5";
-            button5.UseVisualStyleBackColor = true;
+            welcome_dash.AutoSize = true;
+            welcome_dash.Font = new Font("Candara", 26.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            welcome_dash.Location = new Point(564, 166);
+            welcome_dash.Name = "welcome_dash";
+            welcome_dash.Size = new Size(341, 42);
+            welcome_dash.TabIndex = 9;
+            welcome_dash.Text = "Welcome to MediSync";
             // 
             // Dashboard
             // 
@@ -350,7 +364,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1264, 681);
-            Controls.Add(button5);
+            Controls.Add(welcome_dash);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -401,6 +415,6 @@
         private Button button2;
         private Button button3;
         private Button button4;
-        private Button button5;
+        private Label welcome_dash;
     }
 }
