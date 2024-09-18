@@ -40,7 +40,24 @@ namespace login
                 try
                 {
                     connection.Open();
-                    string query = "SELECT ID, name, stock, price FROM medicine";
+                    // Updated query to join medicine and inventory tables and select additional quantity field
+                    string query = @"
+                SELECT 
+                    m.med_id AS 'Product ID',
+                    m.med_name AS 'Product Name',
+                    m.med_brand AS 'Brand',
+                    m.med_manufacturer AS 'Manufacturer',
+                    m.med_category AS 'Category',
+                    m.med_form AS 'Form',
+                    m.med_dosage AS 'Dosage',
+                    m.med_price AS 'Price',
+                    i.quantity AS 'Stock Quantity'
+                FROM 
+                    medicine m
+                JOIN 
+                    inventory i
+                ON 
+                    m.med_id = i.med_id";
 
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
@@ -52,16 +69,21 @@ namespace login
                         dataGridViewProducts.DataSource = productTable;
 
                         // Make the header text bold for specific columns
-                        dataGridViewProducts.Columns[0].HeaderCell.Style.Font = new Font("Segoe UI", 15, FontStyle.Bold); // First column
-                        dataGridViewProducts.Columns[1].HeaderCell.Style.Font = new Font("Segoe UI", 15, FontStyle.Bold); // Second column
-                        dataGridViewProducts.Columns[2].HeaderCell.Style.Font = new Font("Segoe UI", 15, FontStyle.Bold); // Third column
-                        dataGridViewProducts.Columns[3].HeaderCell.Style.Font = new Font("Segoe UI", 15, FontStyle.Bold); // Fourth column
+                        foreach (DataGridViewColumn column in dataGridViewProducts.Columns)
+                        {
+                            column.HeaderCell.Style.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                        }
 
                         // Optionally, you can also change header text
-                        dataGridViewProducts.Columns[0].HeaderText = "Product ID";
-                        dataGridViewProducts.Columns[1].HeaderText = "Product Name";
-                        dataGridViewProducts.Columns[2].HeaderText = "Stock Quantity";
-                        dataGridViewProducts.Columns[3].HeaderText = "Price";
+                        dataGridViewProducts.Columns["Product ID"].HeaderText = "Product ID";
+                        dataGridViewProducts.Columns["Product Name"].HeaderText = "Product Name";
+                        dataGridViewProducts.Columns["Brand"].HeaderText = "Brand";
+                        dataGridViewProducts.Columns["Manufacturer"].HeaderText = "Manufacturer";
+                        dataGridViewProducts.Columns["Category"].HeaderText = "Category";
+                        dataGridViewProducts.Columns["Form"].HeaderText = "Form";
+                        dataGridViewProducts.Columns["Dosage"].HeaderText = "Dosage";
+                        dataGridViewProducts.Columns["Price"].HeaderText = "Price";
+                        dataGridViewProducts.Columns["Stock Quantity"].HeaderText = "Stock Quantity";
                     }
                 }
                 catch (Exception ex)
@@ -71,14 +93,19 @@ namespace login
             }
         }
 
+
         private void button3_Click(object sender, EventArgs e)
         {
-
             welcome_dash.Visible = false;
-            button1.Visible = false;
-            button2.Visible = false;
-            button3.Visible = false;
-            button4.Visible = false;
+            btnDash_Users.Visible = false;
+            btnDash_expiry.Visible = false;
+            btnDash_restock.Visible = false;
+            btnDash_sales.Visible = false;
+
+            quickaccess_labelusers.Visible = false;
+            quickaccess_labelexp.Visible = false;
+            quickaccess_labelrestock.Visible = false;
+            quickaccess_labelsales.Visible = false;
             // Make them visible when the button is clicked
             dataGridViewProducts.Visible = true;
             search_product.Visible = true;
@@ -88,13 +115,8 @@ namespace login
 
         private void accountBtn_Click(object sender, EventArgs e)
         {
-            EditAccountForm editAccountForm = new EditAccountForm(userId);
+            EditAccountForm editAccountForm = new EditAccountForm();
             editAccountForm.ShowDialog();
-        }
-
-        private void logout_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -133,10 +155,36 @@ namespace login
         {
             welcome_dash.Visible = true;
             // show dash buttons
-            button1.Visible = true; button2.Visible = true; button3.Visible = true; button4.Visible = true;
+            btnDash_Users.Visible = true; btnDash_expiry.Visible = true; btnDash_restock.Visible = true; btnDash_sales.Visible = true;
+            quickaccess_labelusers.Visible = true;
+            quickaccess_labelexp.Visible = true;
+            quickaccess_labelrestock.Visible = true;
+            quickaccess_labelsales.Visible = true;
             // Hide them when button1 is clicked
             dataGridViewProducts.Visible = false;
             search_product.Visible = false;
+        }
+
+        private void btnDash_Users_Click(object sender, EventArgs e)
+        {
+            EditAccountForm editAccountForm = new EditAccountForm();
+            editAccountForm.ShowDialog();
+        }
+
+        private void btnDash_expiry_Click(object sender, EventArgs e)
+        {
+            ExpiryMonitor expiryMonitor = new ExpiryMonitor();
+            expiryMonitor.ShowDialog();
+        }
+
+        private void btnDash_restock_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDash_sales_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
